@@ -1,5 +1,8 @@
-﻿  Bricks.cpp
+﻿  BrickJump.cpp
+  BrickJumpForward.cpp
+  BrickMoveR.cpp
   The contents of <any> are available only with C++17 or later.
-D:\LA HORDE\GitHUB2\Instance-2\InstancePerso\packages\SFPhysics.2.0.1\build\native\include\SFPhysics\BoundsCollisionResult.h(9,2): warning C4099: 'sfp::BoundsCollisionResult' : nom de type déjà rencontré avec 'class' et utilisant maintenant 'struct'
-D:\LA HORDE\GitHUB2\Instance-2\InstancePerso\packages\SFPhysics.2.0.1\build\native\include\SFPhysics\BoundsCollisionResult.h(8): message : voir la déclaration de 'sfp::BoundsCollisionResult'
-  InstancePerso.vcxproj -> D:\LA HORDE\GitHUB2\Instance-2\InstancePerso\x64\Debug\InstancePerso.exe
+C:\Users\sanzl\Documents\GitHub\instance\Instance-2\InstancePerso\packages\SFPhysics.2.0.1\build\native\include\SFPhysics\BoundsCollisionResult.h(9,2): warning C4099: 'sfp::BoundsCollisionResult' : nom de type déjà rencontré avec 'class' et utilisant maintenant 'struct'
+C:\Users\sanzl\Documents\GitHub\instance\Instance-2\InstancePerso\packages\SFPhysics.2.0.1\build\native\include\SFPhysics\BoundsCollisionResult.h(8): message : voir la déclaration de 'sfp::BoundsCollisionResult'
+  Génération de code en cours...
+  InstancePerso.vcxproj -> C:\Users\sanzl\Documents\GitHub\instance\Instance-2\InstancePerso\x64\Debug\InstancePerso.exe
