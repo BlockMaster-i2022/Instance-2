@@ -20,4 +20,3 @@ private:
 	float m_playerX;
 	float m_playerY;
 };
-
