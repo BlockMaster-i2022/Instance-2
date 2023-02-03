@@ -1,4 +1,6 @@
 #include "Bricks.h"
+#include "Player.h"
+#include "BrickMoveR.h"
 
 Bricks::Bricks()
 {
@@ -21,6 +23,8 @@ Bricks::Bricks()
 	sf::Texture m_textureFirstBrick;
 	sf::Texture m_textureRun;
 	sf::Texture m_textureMap;
+
+	sfp::PhysicsRectangle m_player;
 
 	m_printOne = false;
 
@@ -49,6 +53,8 @@ Bricks::~Bricks()
 	sf::Texture m_textureFirstBrick;
 	sf::Texture m_textureRun;
 	sf::Texture m_textureMap;
+
+	sfp::PhysicsRectangle m_player;
 
 	m_printOne;
 
@@ -141,39 +147,7 @@ void Bricks::systemBricks(sf::RenderWindow& window, sf::Event event)
 		std::cout << PosRightBrick.y << std::endl;
 		m_printOne = true;
 	}
-
-	if (mousePos.x > 47 && mousePos.x < 188 && mousePos.y > 855 && mousePos.y < 930)
-	{
-		if (event.mouseButton.button == sf::Mouse::Left)
-		{
-			std::cout << "Tu clique sur la brick faire un pas a droite" << std::endl;
-		}		
-	}
-
-	if (mousePos.x > 247 && mousePos.x < 388 && mousePos.y > 855 && mousePos.y < 930)
-	{
-		if (event.mouseButton.button == sf::Mouse::Left)
-		{
-			std::cout << "Tu clique sur la brique faire un pas a gauche" << std::endl;
-		}
-	}
-
-	if (mousePos.x > 447 && mousePos.x < 588 && mousePos.y > 855 && mousePos.y < 930)
-	{
-		if (event.mouseButton.button == sf::Mouse::Left)
-		{
-			std::cout << "Tu clique sur la brique sauter sur place" << std::endl;
-		}
-	}
-
-	if (mousePos.x > 647 && mousePos.x < 788 && mousePos.y > 855 && mousePos.y < 930)
-	{
-		if (event.mouseButton.button == sf::Mouse::Left)
-		{
-			std::cout << "Tu clique sur la brique sauter en avant" << std::endl;
-		}
-	}
-
+	//CATCH AN OBJECT
 	if (mousePos.x > 847 && mousePos.x < 988 && mousePos.y > 855 && mousePos.y < 930)
 	{
 		if (event.mouseButton.button == sf::Mouse::Left)
@@ -181,7 +155,7 @@ void Bricks::systemBricks(sf::RenderWindow& window, sf::Event event)
 			std::cout << "Tu clique sur la brique attraper un objet" << std::endl;
 		}
 	}
-
+	//THROW AN OBJECT
 	if (mousePos.x > 1047 && mousePos.x < 1188 && mousePos.y > 855 && mousePos.y < 930)
 	{
 		if (event.mouseButton.button == sf::Mouse::Left)
@@ -190,3 +164,8 @@ void Bricks::systemBricks(sf::RenderWindow& window, sf::Event event)
 		}
 	}
 }
+
+void Bricks::DisplayTab()
+{
+}
+

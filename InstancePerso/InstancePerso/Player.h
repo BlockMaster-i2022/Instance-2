@@ -3,7 +3,10 @@
 #include <iostream>
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
-#include <SFPhysics.h>
+#include <SFPhysics.h>4
+#include "BrickMoveR.h"
+#include "BrickMoveL.h"
+#include <vector>
 
 class Player
 {
@@ -13,10 +16,13 @@ public:
 
 	void DrawPlayer(sf::RenderWindow& window);
 	void CreatePlayer();
+	void createTab(int index);
+	void tabRead();
 
 private:
-	sf::RectangleShape m_player;
-
+	sfp::PhysicsRectangle m_player;
 	float m_playerX;
 	float m_playerY;
+
+	vector<int> tab;
 };

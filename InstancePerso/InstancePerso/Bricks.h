@@ -4,6 +4,8 @@
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
 #include <SFPhysics.h>
+#include <vector>
+#include "Player.h"
 
 
 class Bricks
@@ -14,6 +16,7 @@ public:
 	void DisplayBricks();
 	void DrawSystemBricks(sf::RenderWindow& window);
 	void systemBricks(sf::RenderWindow& window, sf::Event event);
+	void DisplayTab();
 private:
 	sf::Sprite m_OnMoveRight;
 	sf::Sprite m_OnMoveLeft;
@@ -35,8 +38,12 @@ private:
 	sf::Texture m_textureRun;
 	sf::Texture m_textureMap;
 
+	sfp::PhysicsRectangle m_player;
+
 	float m_PosBricksX;
 	float m_PosBricksY;
 
 	bool m_printOne;
+	
+	vector<sf::Sprite> spriteTab;
 };

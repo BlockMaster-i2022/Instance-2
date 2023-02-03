@@ -8,29 +8,24 @@
 
 BrickMoveR::BrickMoveR()
 {
-	sf::Texture m_OnTMoveRight;
-	sf::Sprite m_OnMoveRight;
 }
 
 BrickMoveR::~BrickMoveR()
 {
-	sf::Texture m_OnTMoveRight;
-	sf::Sprite m_OnMoveRight;
-}
-
-void BrickMoveR::displayBrickMoveR()
-{
-	if (!m_OnTMoveRight.loadFromFile("assets/Right.png"))
-		std::cout << "Fail to load Right.png" << std::endl;
 
 }
 
-void BrickMoveR::drawBrickMoveR(sf::RenderWindow& window)
+int BrickMoveR::SystemeMoveR(sf::Event event)
 {
-	window.draw(m_OnMoveRight);
-}
+	Vector2i mousePos = Mouse::getPosition();
 
-void BrickMoveR::SystemeMoveR()
-{
-	
+	if (mousePos.x > 47 && mousePos.x < 188 && mousePos.y > 855 && mousePos.y < 930)
+	{
+		if (event.mouseButton.button == sf::Mouse::Left)
+		{
+//			std::cout << "Tu clique sur la brique faire un pas a droite" << std::endl;
+			return 1;
+		}	
+	}
+	return 0;
 }
