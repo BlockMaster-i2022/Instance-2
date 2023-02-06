@@ -4,22 +4,49 @@
 
 Player::Player()
 {
-	sfp::PhysicsRectangle m_player;
-
 	m_playerX = 960.0;
-	m_playerY = 540.0;
+	m_playerY = 100.0;
+
+	g = 0;
+	s = 0;
 }
 
 Player::~Player()
 {
-	sfp::PhysicsRectangle m_player;
+	m_playerX;
+	m_playerY;
 }
 
 void Player::CreatePlayer()
 {
-	m_player.setSize(sf::Vector2f(32.0, 32.0));
-	m_player.setCenter(sf::Vector2f(m_playerX, m_playerY));
-	m_player.setStatic(true);
+	this->setSize(sf::Vector2f(32.0, 32.0));
+	this->setPosition(sf::Vector2f(m_playerX, m_playerY));
+}
+
+void Player::Gravity(RenderWindow& window)
+{
+	if (this->getGlobalBounds().intersects(m_rect.getGlobalBounds()))
+	{
+		g = 0;
+	}
+
+	sf::Vector2f gravity(s,g);
+
+	g += 0.2;
+
+	this->move(gravity);
+
+	//Vector2f posPlayer = this->Transformable::getPosition();
+	//std::cout << posPlayer.y << std::endl;
+
+	std::cout << "Gravite : " << g << std::endl;
+	
+	window.draw(*this);
+}
+
+void Player::Collider()
+{
+	
 }
 
 void Player::createTab(int index)
@@ -38,24 +65,19 @@ void Player::tabRead()
 		switch (tab[i])
 		{
 		case 1 :
-			m_playerX += 32;
-			m_player.setCenter(sf::Vector2f(m_playerX, m_playerY));
+			this->move(Vector2f(33.0, 0.0));
 			std::cout << "Tu vas à droite" << std::endl;
 			break;
 		case 2 : 
-			m_playerX -= 32;
-			m_player.setCenter(sf::Vector2f(m_playerX, m_playerY));
+			this->move(Vector2f(-33.0, 0.0));
 			std::cout << "Tu vas à gauche" << std::endl;
 			break;		
-		case 3 :  
-			m_playerY -= 32;
-			m_player.setCenter(sf::Vector2f(m_playerX, m_playerY));
+		case 3 :
+			this->move(Vector2f(0.0, -33.0));
 			std::cout << "Tu Sautes" << std::endl;
 			break;
 		case 4 : 
-			m_playerY -= 32;
-			m_playerX += 32;
-			m_player.setCenter(sf::Vector2f(m_playerX, m_playerY));
+			this->move(Vector2f(32.0, -33.0));
 			std::cout << "Tu saute en avant" << std::endl;
 			break;
 		default:
@@ -68,8 +90,7 @@ void Player::tabRead()
 	}
 }
 
-
 void Player::DrawPlayer(sf::RenderWindow& window)
 {
-	window.draw(m_player);
+	window.draw(m_rect);
 }

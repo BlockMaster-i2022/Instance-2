@@ -167,5 +167,6 @@ void Bricks::systemBricks(sf::RenderWindow& window, sf::Event event)
 
 void Bricks::DisplayTab()
 {
+
 }
 

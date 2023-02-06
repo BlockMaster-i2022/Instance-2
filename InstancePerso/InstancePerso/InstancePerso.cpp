@@ -20,17 +20,17 @@ int main()
     BrickMoveL bl;
     BrickJumpForward bjf;
     BrickJump bj;
-   
+        b.DisplayBricks();
+        p.CreatePlayer();
+
     // window creation
     sf::RenderWindow window(sf::VideoMode(1920, 1080), "CodVenture");
-
     // Game while open
     while (window.isOpen())
     {
         sf::Event event;
 
-        b.DisplayBricks();
-        p.CreatePlayer();
+ //       p.Collider();
 
         while (window.pollEvent(event))
         {
@@ -63,21 +63,21 @@ int main()
                 {
                     p.createTab(moveJResult);
                 }
-
                 r.systemRun(event);
             }
         }
+            // Black screen
+            window.clear(sf::Color(0, 0, 255));
 
-        // Black screen
-        window.clear(sf::Color(0, 0, 255));
+            // Update
+            // window.draw(...);  
+            b.DrawSystemBricks(window);
+            p.DrawPlayer(window);
+            
+            p.Gravity(window);
 
-        // Update
-        // window.draw(...);        
-        b.DrawSystemBricks(window);
-        p.DrawPlayer(window);
-
-        // Last Frame
-        window.display();
+            // Last Frame
+            window.display();
     }
 
     return 0;

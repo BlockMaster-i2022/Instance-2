@@ -9,6 +9,7 @@
 #include <vector>
 
 class Player
+	: public sf::RectangleShape
 {
 public:
 	Player();
@@ -18,11 +19,13 @@ public:
 	void CreatePlayer();
 	void createTab(int index);
 	void tabRead();
-
+	void Gravity(RenderWindow& window);
+	void Collider();
 private:
-	sfp::PhysicsRectangle m_player;
 	float m_playerX;
 	float m_playerY;
+
+    float s, g;
 
 	vector<int> tab;
 };
