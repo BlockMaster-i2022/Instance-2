@@ -1,5 +1,82 @@
 ﻿  InstancePerso.cpp
   The contents of <any> are available only with C++17 or later.
-C:\Users\sanzl\Documents\GitHub\instance\Instance-2\InstancePerso\packages\SFPhysics.2.0.1\build\native\include\SFPhysics\BoundsCollisionResult.h(9,2): warning C4099: 'sfp::BoundsCollisionResult' : nom de type déjà rencontré avec 'class' et utilisant maintenant 'struct'
-C:\Users\sanzl\Documents\GitHub\instance\Instance-2\InstancePerso\packages\SFPhysics.2.0.1\build\native\include\SFPhysics\BoundsCollisionResult.h(8): message : voir la déclaration de 'sfp::BoundsCollisionResult'
-  InstancePerso.vcxproj -> C:\Users\sanzl\Documents\GitHub\instance\Instance-2\InstancePerso\x64\Debug\InstancePerso.exe
+C:\Users\Alexa\Documents\GitHub\Instance-2\InstancePerso\packages\SFPhysics.2.0.1\build\native\include\SFPhysics\BoundsCollisionResult.h(9,2): warning C4099: 'sfp::BoundsCollisionResult' : nom de type déjà rencontré avec 'class' et utilisant maintenant 'struct'
+C:\Users\Alexa\Documents\GitHub\Instance-2\InstancePerso\packages\SFPhysics.2.0.1\build\native\include\SFPhysics\BoundsCollisionResult.h(8): message : voir la déclaration de 'sfp::BoundsCollisionResult'
+C:\Users\Alexa\Documents\GitHub\Instance-2\InstancePerso\InstancePerso\InstancePerso.cpp(34,30): warning C4305: 'argument' : troncation de 'double' à 'float'
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.33.31629\include\type_traits(1558,67): warning C4244: 'argument' : conversion de '_Ty' en 'unsigned int', perte possible de données
+          with
+          [
+              _Ty=float
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.33.31629\include\functional(663): message : voir la référence à l'instanciation de la fonction modèle 'void std::invoke<_Callable&,_Ty,>(sfp::PhysicsShapeT<sfp::CenteredRectangle,sfp::AABB>::{ctor}::<lambda_5>&,_Ty1 &&) noexcept(false)' en cours de compilation
+          with
+          [
+              _Callable=sfp::PhysicsShapeT<sfp::CenteredRectangle,sfp::AABB>::{ctor}::<lambda_5>,
+              _Ty=float,
+              _Ty1=float
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.33.31629\include\functional(830): message : voir la référence à l'instanciation de la fonction modèle '_Rx std::_Invoker_ret<_Rx>::_Call<_Callable&,_Ty>(_Fx,_Ty &&) noexcept(false)' en cours de compilation
+          with
+          [
+              _Rx=void,
+              _Callable=sfp::PhysicsShapeT<sfp::CenteredRectangle,sfp::AABB>::{ctor}::<lambda_5>,
+              _Ty=float,
+              _Fx=sfp::PhysicsShapeT<sfp::CenteredRectangle,sfp::AABB>::{ctor}::<lambda_5> &
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.33.31629\include\functional(831): message : voir la référence à l'instanciation de la fonction modèle '_Rx std::_Invoker_ret<_Rx>::_Call<_Callable&,_Ty>(_Fx,_Ty &&) noexcept(false)' en cours de compilation
+          with
+          [
+              _Rx=void,
+              _Callable=sfp::PhysicsShapeT<sfp::CenteredRectangle,sfp::AABB>::{ctor}::<lambda_5>,
+              _Ty=float,
+              _Fx=sfp::PhysicsShapeT<sfp::CenteredRectangle,sfp::AABB>::{ctor}::<lambda_5> &
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.33.31629\include\functional(830): message : pendant la compilation de la fonction membre classe modèle '_Rx std::_Func_impl_no_alloc<sfp::PhysicsShapeT<sfp::CenteredRectangle,sfp::AABB>::{ctor}::<lambda_5>,_Rx,float>::_Do_call(float &&)'
+          with
+          [
+              _Rx=void
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.33.31629\include\functional(728): message : voir la référence à l'instanciation classe modèle 'std::_Func_impl_no_alloc<sfp::PhysicsShapeT<sfp::CenteredRectangle,sfp::AABB>::{ctor}::<lambda_5>,_Ret,float>' en cours de compilation
+          with
+          [
+              _Ret=void
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.33.31629\include\functional(920): message : voir les informations de référence sur le modèle de variable 'const bool _Is_large<std::_Func_impl_no_alloc<`sfp::PhysicsShapeT<sfp::CenteredRectangle,sfp::AABB>::PhysicsShapeT<sfp::CenteredRectangle,sfp::AABB>'::`2'::<lambda_5>,void,float> >' en cours de compilation
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.33.31629\include\functional(1051): message : voir la référence à l'instanciation de la fonction modèle 'void std::_Func_class<_Ret,float>::_Reset<_Ty>(_Fx &&)' en cours de compilation
+          with
+          [
+              _Ret=void,
+              _Ty=sfp::PhysicsShapeT<sfp::CenteredRectangle,sfp::AABB>::{ctor}::<lambda_5>,
+              _Fx=sfp::PhysicsShapeT<sfp::CenteredRectangle,sfp::AABB>::{ctor}::<lambda_5>
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.33.31629\include\functional(1051): message : voir la référence à l'instanciation de la fonction modèle 'void std::_Func_class<_Ret,float>::_Reset<_Ty>(_Fx &&)' en cours de compilation
+          with
+          [
+              _Ret=void,
+              _Ty=sfp::PhysicsShapeT<sfp::CenteredRectangle,sfp::AABB>::{ctor}::<lambda_5>,
+              _Fx=sfp::PhysicsShapeT<sfp::CenteredRectangle,sfp::AABB>::{ctor}::<lambda_5>
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.33.31629\include\functional(1106): message : voir la référence à l'instanciation de la fonction modèle 'std::function<void (float)>::function<sfp::PhysicsShapeT<sfp::CenteredRectangle,sfp::AABB>::{ctor}::<lambda_5>,0>(_Fx &&)' en cours de compilation
+          with
+          [
+              _Fx=sfp::PhysicsShapeT<sfp::CenteredRectangle,sfp::AABB>::{ctor}::<lambda_5>
+          ]
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.33.31629\include\functional(1106): message : voir la référence à l'instanciation de la fonction modèle 'std::function<void (float)>::function<sfp::PhysicsShapeT<sfp::CenteredRectangle,sfp::AABB>::{ctor}::<lambda_5>,0>(_Fx &&)' en cours de compilation
+          with
+          [
+              _Fx=sfp::PhysicsShapeT<sfp::CenteredRectangle,sfp::AABB>::{ctor}::<lambda_5>
+          ]
+C:\Users\Alexa\Documents\GitHub\Instance-2\InstancePerso\packages\SFPhysics.2.0.1\build\native\include\SFPhysics\PhysicsShapeT.h(57): message : voir la référence à l'instanciation de la fonction modèle 'std::function<void (float)> &std::function<void (float)>::operator =<sfp::PhysicsShapeT<sfp::CenteredRectangle,sfp::AABB>::{ctor}::<lambda_5>,0>(_Fx &&)' en cours de compilation
+          with
+          [
+              _Fx=sfp::PhysicsShapeT<sfp::CenteredRectangle,sfp::AABB>::{ctor}::<lambda_5>
+          ]
+C:\Users\Alexa\Documents\GitHub\Instance-2\InstancePerso\packages\SFPhysics.2.0.1\build\native\include\SFPhysics\PhysicsShapeT.h(53): message : voir la référence à l'instanciation de la fonction modèle 'std::function<void (float)> &std::function<void (float)>::operator =<sfp::PhysicsShapeT<sfp::CenteredRectangle,sfp::AABB>::{ctor}::<lambda_5>,0>(_Fx &&)' en cours de compilation
+          with
+          [
+              _Fx=sfp::PhysicsShapeT<sfp::CenteredRectangle,sfp::AABB>::{ctor}::<lambda_5>
+          ]
+C:\Users\Alexa\Documents\GitHub\Instance-2\InstancePerso\packages\SFPhysics.2.0.1\build\native\include\SFPhysics\PhysicsShapeT.h(44): message : pendant la compilation de la fonction membre classe modèle 'sfp::PhysicsShapeT<sfp::CenteredRectangle,sfp::AABB>::PhysicsShapeT(void)'
+C:\Users\Alexa\Documents\GitHub\Instance-2\InstancePerso\packages\SFPhysics.2.0.1\build\native\include\SFPhysics\PhysicsRectangle.h(8): message : voir la référence à l'instanciation de la fonction modèle 'sfp::PhysicsShapeT<sfp::CenteredRectangle,sfp::AABB>::PhysicsShapeT(void)' en cours de compilation
+C:\Users\Alexa\Documents\GitHub\Instance-2\InstancePerso\packages\SFPhysics.2.0.1\build\native\include\SFPhysics\PhysicsRectangle.h(8): message : voir la référence à l'instanciation classe modèle 'sfp::PhysicsShapeT<sfp::CenteredRectangle,sfp::AABB>' en cours de compilation
+  InstancePerso.vcxproj -> C:\Users\Alexa\Documents\GitHub\Instance-2\InstancePerso\x64\Debug\InstancePerso.exe
