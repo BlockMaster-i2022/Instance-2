@@ -5,14 +5,20 @@
 
 #include "Bricks.h"
 #include "Player.h"
+#include "Enemies.h"
 
 int main()
 {
     Player p;
+    enemies e;
+    enemies pablo;
     Bricks b(&p);
     
     b.DisplayBricks();
     p.CreatePlayer();
+    e.createEnemies(1059, 100);
+    pablo.createEnemies(802, 100);
+    
 
     // window creation
     sf::RenderWindow window(sf::VideoMode(1920, 1080), "CodVenture");
@@ -60,6 +66,8 @@ int main()
             b.DrawSystemBricks(window);
             b.DrawTab(window);
             p.Gravity(window);
+            e.GravityE(window, 1060, 1447);
+            pablo.GravityE(window, 803, 900);
 
             // Last Frame
             window.display();
