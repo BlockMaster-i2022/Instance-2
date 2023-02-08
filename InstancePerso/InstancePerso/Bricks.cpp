@@ -1,8 +1,7 @@
 #include "Bricks.h"
 #include "Player.h"
-#include "BrickMoveR.h"
 
-Bricks::Bricks()
+Bricks::Bricks(Player* player)
 {
 	sf::Sprite m_OnMoveRight;
 	sf::Sprite m_OnMoveLeft;
@@ -30,6 +29,23 @@ Bricks::Bricks()
 
 	m_PosBricksX = 10.0;
 	m_PosBricksY = 925.0;
+
+	RectangleShape m_RightMove;
+	Texture m_textureRightMove;
+
+	RectangleShape m_LeftMove;
+	Texture m_textureLeftMove;
+
+	RectangleShape m_JumpMove;
+	Texture m_textureJumpMove;
+
+	RectangleShape m_JumpFMove;
+	Texture m_textureJumpFMove;
+
+	i = 0;
+	posX = 10.0;
+
+	p = player;
 }
 
 Bricks::~Bricks()
@@ -60,6 +76,8 @@ Bricks::~Bricks()
 
 	m_PosBricksX;
 	m_PosBricksY;
+
+	m_GameIsRunning = false;
 }
 
 void Bricks::DisplayBricks()
@@ -165,8 +183,129 @@ void Bricks::systemBricks(sf::RenderWindow& window, sf::Event event)
 	}
 }
 
-void Bricks::DisplayTab()
+int Bricks::SystemeMoveL(Event event)
 {
+	Vector2i mousePos = Mouse::getPosition();
 
+	if (!m_textureLeftMove.loadFromFile("assets/Left.png"))
+		std::cout << "Fail to load Left.png" << std::endl;
+
+	m_LeftMove.setSize(Vector2f(200.0, 75.0));
+	m_LeftMove.setTexture(&m_textureLeftMove);
+	m_LeftMove.setPosition(Vector2f(posX, 925.0));
+
+	if (mousePos.x > 247 && mousePos.x < 388 && mousePos.y > 855 && mousePos.y < 930)
+	{
+		if (event.mouseButton.button == sf::Mouse::Left)
+		{
+			posX += 165.0;
+			drawSprite.push_back(m_LeftMove);
+			return 2;
+		}
+	}
+
+	return 0;
+}
+int Bricks::SystemeMoveR(Event event)
+{
+	Vector2i mousePos = Mouse::getPosition();
+
+	if (!m_textureRightMove.loadFromFile("assets/Right.png"))
+		std::cout << "Fail to load Right.png" << std::endl;
+
+	m_RightMove.setSize(Vector2f(200.0, 75.0));
+	m_RightMove.setTexture(&m_textureRightMove);
+	m_RightMove.setPosition(Vector2f(posX, 925.0));
+
+	if (mousePos.x > 47 && mousePos.x < 188 && mousePos.y > 855 && mousePos.y < 930)
+	{
+		if (event.mouseButton.button == sf::Mouse::Left)
+		{
+			posX += 165.0;
+			drawSprite.push_back(m_RightMove);
+			return 1;
+		}
+	}
+	return 0;
 }
 
+bool Bricks::SystemRun(sf::Event event)
+{
+	Vector2i mousePos = Mouse::getPosition();
+
+	if (mousePos.x > 1797 && mousePos.x < 1893 && mousePos.y > 846 && mousePos.y < 892)
+	{
+		if (event.mouseButton.button == sf::Mouse::Left)
+		{
+			std::cout << "Tu clique sur la brique run" << std::endl;
+			m_GameIsRunning = true;
+		}
+	}
+
+	return false;
+}
+
+
+
+int Bricks::SystemMoveJ(Event event)
+{
+	Vector2i mousePos = Mouse::getPosition();
+
+	if (!m_textureJumpMove.loadFromFile("assets/Jump.png"))
+		std::cout << "Fail to load Jump.png" << std::endl;
+
+	m_JumpMove.setSize(Vector2f(200.0, 75.0));
+	m_JumpMove.setTexture(&m_textureJumpMove);
+	m_JumpMove.setPosition(Vector2f(posX, 925.0));
+
+	if (mousePos.x > 447 && mousePos.x < 588 && mousePos.y > 855 && mousePos.y < 930)
+	{
+		if (event.mouseButton.button == sf::Mouse::Left)
+		{
+			posX += 165.0;
+			drawSprite.push_back(m_JumpMove);
+			return 3;
+		}
+	}
+	return 0;
+}
+
+int Bricks::SystemMoveJF(Event event)
+{
+	Vector2i mousePos = Mouse::getPosition();
+
+	if (!m_textureJumpFMove.loadFromFile("assets/JumpForward.png"))
+		std::cout << "Fail to load JumpForward.png" << std::endl;
+
+	m_JumpFMove.setSize(Vector2f(200.0, 75.0));
+	m_JumpFMove.setTexture(&m_textureJumpFMove);
+	m_JumpFMove.setPosition(Vector2f(posX, 925.0));
+
+	if (mousePos.x > 647 && mousePos.x < 788 && mousePos.y > 855 && mousePos.y < 930)
+	{
+		if (event.mouseButton.button == sf::Mouse::Left)
+		{
+			posX += 165.0;
+			drawSprite.push_back(m_JumpFMove);
+			return 4;
+		}
+	}
+
+	return 0;
+}
+
+void Bricks::DrawTab(RenderWindow& window)
+{
+	for (auto& sprite : drawSprite)
+	{
+		window.draw(sprite);
+	}
+}
+
+void Bricks::LoopRun()
+{
+	if (m_GameIsRunning)
+	{
+		p->tabRead(m_GameIsRunning);
+	}
+}

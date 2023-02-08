@@ -139,23 +139,13 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="BrickJump.cpp" />
-    <ClCompile Include="BrickJumpForward.cpp" />
-    <ClCompile Include="BrickMoveL.cpp" />
-    <ClCompile Include="BrickMoveR.cpp" />
     <ClCompile Include="Bricks.cpp" />
     <ClCompile Include="InstancePerso.cpp" />
     <ClCompile Include="Player.cpp" />
-    <ClCompile Include="Run.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="BrickJump.h" />
-    <ClInclude Include="BrickJumpForward.h" />
-    <ClInclude Include="BrickMoveL.h" />
-    <ClInclude Include="BrickMoveR.h" />
     <ClInclude Include="Bricks.h" />
     <ClInclude Include="Player.h" />
-    <ClInclude Include="Run.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

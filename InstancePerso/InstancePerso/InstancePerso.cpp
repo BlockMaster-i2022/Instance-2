@@ -5,23 +5,14 @@
 
 #include "Bricks.h"
 #include "Player.h"
-#include "BrickMoveR.h"
-#include "BrickMoveL.h"
-#include "Run.h"
-#include "BrickJump.h"
-#include "BrickJumpForward.h"
 
 int main()
 {
-    Bricks b;
     Player p;
-    Run r(&p);
-    BrickMoveR br;
-    BrickMoveL bl;
-    BrickJumpForward bjf;
-    BrickJump bj;
-        b.DisplayBricks();
-        p.CreatePlayer();
+    Bricks b(&p);
+    
+    b.DisplayBricks();
+    p.CreatePlayer();
 
     // window creation
     sf::RenderWindow window(sf::VideoMode(1920, 1080), "CodVenture");
@@ -30,23 +21,17 @@ int main()
     {
         sf::Event event;
 
- //       p.Collider();
-
         while (window.pollEvent(event))
         {
             if (event.type == sf::Event::Closed)
                 window.close();
             if (event.type == sf::Event::MouseButtonPressed)
             {
-                // b.systemBricks(window, event);
-                int moveRResult = br.SystemeMoveR(event);
-                int moveLResult = bl.SystemeMoveL(event);
-                int moveJFResult = bjf.SystemMoveJF(event);
-                int moveJResult = bj.SystemMoveJ(event);
+                int moveRResult = b.SystemeMoveR(event);
+                int moveLResult = b.SystemeMoveL(event);
+                int moveJFResult = b.SystemMoveJF(event);
+                int moveJResult = b.SystemMoveJ(event);
                 
-                std::cout << "La fonction moveRight return : " << moveRResult << std::endl;
-                std::cout << "La fonction moveLeft return : " << moveLResult << std::endl;
-               
                 if (moveRResult != 0 )
                 {
                     p.createTab(moveRResult);
@@ -63,17 +48,17 @@ int main()
                 {
                     p.createTab(moveJResult);
                 }
-                r.systemRun(event);
+                b.SystemRun(event);
             }
         }
             // Black screen
             window.clear(sf::Color(0, 0, 255));
 
             // Update
+            b.LoopRun();
             // window.draw(...);  
             b.DrawSystemBricks(window);
-            p.DrawPlayer(window);
-            
+            b.DrawTab(window);
             p.Gravity(window);
 
             // Last Frame

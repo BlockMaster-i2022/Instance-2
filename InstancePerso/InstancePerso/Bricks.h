@@ -11,12 +11,20 @@
 class Bricks
 {
 public:
-	Bricks();
+	Bricks(Player* player);
 	~Bricks();
 	void DisplayBricks();
 	void DrawSystemBricks(sf::RenderWindow& window);
 	void systemBricks(sf::RenderWindow& window, sf::Event event);
-	void DisplayTab();
+	void DrawTab(RenderWindow& window);
+	void LoopRun();
+
+	int SystemMoveJ(sf::Event event);
+	int SystemMoveJF(sf::Event event);
+	int SystemeMoveL(sf::Event event); 
+	int SystemeMoveR(sf::Event event);
+	
+	bool SystemRun(sf::Event event);
 private:
 	sf::Sprite m_OnMoveRight;
 	sf::Sprite m_OnMoveLeft;
@@ -38,12 +46,29 @@ private:
 	sf::Texture m_textureRun;
 	sf::Texture m_textureMap;
 
-	sfp::PhysicsRectangle m_player;
+	int i;
 
 	float m_PosBricksX;
 	float m_PosBricksY;
+	float posX;
 
+	bool m_GameIsRunning;
 	bool m_printOne;
 	
 	vector<sf::Sprite> spriteTab;
+	vector<RectangleShape> drawSprite;
+
+	RectangleShape m_RightMove;
+	Texture m_textureRightMove;	
+
+	RectangleShape m_LeftMove;
+	Texture m_textureLeftMove;
+
+	RectangleShape m_JumpMove;
+	Texture m_textureJumpMove;
+	
+	RectangleShape m_JumpFMove;
+	Texture m_textureJumpFMove;
+
+	Player* p;
 };

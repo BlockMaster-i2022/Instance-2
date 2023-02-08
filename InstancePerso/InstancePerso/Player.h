@@ -3,9 +3,9 @@
 #include <iostream>
 #include <SFML/Audio.hpp>
 #include <SFML/Graphics.hpp>
-#include <SFPhysics.h>4
-#include "BrickMoveR.h"
-#include "BrickMoveL.h"
+#include <SFPhysics.h>
+#include <chrono>
+#include <thread>
 #include <vector>
 
 class Player
@@ -15,17 +15,19 @@ public:
 	Player();
 	~Player();
 
-	void DrawPlayer(sf::RenderWindow& window);
 	void CreatePlayer();
 	void createTab(int index);
-	void tabRead();
+	void tabRead(bool gameisrunning);
 	void Gravity(RenderWindow& window);
-	void Collider();
+
 private:
 	float m_playerX;
 	float m_playerY;
+	float s, g;
 
-    float s, g;
+	int indexReadTab;
+
+	bool stop;
 
 	vector<int> tab;
 };
