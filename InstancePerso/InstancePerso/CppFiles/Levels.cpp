@@ -1,12 +1,12 @@
 #include "../HeaderFiles/Levels.h"
 
+
 Levels::Levels()
 {
-
+	m_isPlaying = true;
 }
 
 Levels::~Levels()
 {
-	// delete m_nomDeLaChoseADétruire
-	// Pas utile tant qu'on utilise pas un " new "
+	
 }

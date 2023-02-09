@@ -2,7 +2,7 @@
   The contents of <any> are available only with C++17 or later.
 C:\Users\Alexa\Documents\GitHub\Instance-2\InstancePerso\packages\SFPhysics.2.0.1\build\native\include\SFPhysics\BoundsCollisionResult.h(9,2): warning C4099: 'sfp::BoundsCollisionResult' : nom de type déjà rencontré avec 'class' et utilisant maintenant 'struct'
 C:\Users\Alexa\Documents\GitHub\Instance-2\InstancePerso\packages\SFPhysics.2.0.1\build\native\include\SFPhysics\BoundsCollisionResult.h(8): message : voir la déclaration de 'sfp::BoundsCollisionResult'
-C:\Users\Alexa\Documents\GitHub\Instance-2\InstancePerso\InstancePerso\InstancePerso.cpp(34,30): warning C4305: 'argument' : troncation de 'double' à 'float'
+C:\Users\Alexa\Documents\GitHub\Instance-2\InstancePerso\InstancePerso\InstancePerso.cpp(42,30): warning C4305: 'argument' : troncation de 'double' à 'float'
 C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.33.31629\include\type_traits(1558,67): warning C4244: 'argument' : conversion de '_Ty' en 'unsigned int', perte possible de données
           with
           [

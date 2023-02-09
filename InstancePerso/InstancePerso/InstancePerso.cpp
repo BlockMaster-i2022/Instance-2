@@ -3,6 +3,7 @@
 #include "HeaderFiles/Main.h"
 #include "HeaderFiles/Levels.h"
 #include "HeaderFiles/Level1.h"
+#include "HeaderFiles/Level2.h"
 
 //================MAIN=================//
 
@@ -15,17 +16,21 @@ int main()
 
     /// Creation of the map and the maps texture ///
     // Gravity
-    sfp::World world(Vector2f(0, 1));
+    sfp::World world(Vector2f(0, 0.5));
 
     // Map settings
     sfp::PhysicsRectangle map;
     RectangleConfiguration(map, WIN_X / 2, WIN_Y / 2, WIN_X, WIN_Y, sf::Color::White, true);
 
     // Texture creation
-    sf::Texture mapTexture;
-    mapTexture.loadFromFile("../assets/Map.png");
-    map.setTexture(&mapTexture, false);
-    ///
+    sf::Texture mapTexture1;
+    mapTexture1.loadFromFile("../assets/Map1.png");
+    map.setTexture(&mapTexture1, false);
+    
+    //sf::Texture mapTexture2;
+    //mapTexture2.loadFromFile("../assets/Map2.png");
+    //map.setTexture(&mapTexture2, false);
+    
 
 
     ///----TEST----///
@@ -42,6 +47,10 @@ int main()
     // Creation of the changeable level system
     Level1 level1;
     Levels* currentLevel = &level1;
+
+    //Level2 level2;
+    //Levels* currentLevel = &level2;
+
 
     // Adding of a physics
     currentLevel->setPhysics(world);
@@ -77,7 +86,7 @@ int main()
 
             // Drawing of all objects
             window.draw(map);
-            currentLevel->drawLevel(window);
+            currentLevel->drawLevel(window, false);
 
             window.draw(player);
             //
@@ -85,7 +94,7 @@ int main()
             window.display();
         }
         // Destruction of all objects
-        
+
         //
 
     }
