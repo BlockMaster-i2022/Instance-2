@@ -9,17 +9,20 @@
 
 int main()
 {
+    //instance Player
     Player p;
-    enemies e;
-    enemies pablo;
     Bricks b(&p);
-    
-    b.DisplayBricks();
-    p.CreatePlayer();
-    e.createEnemies(1059, 100);
-    pablo.createEnemies(802, 100);
-    
 
+    //instance enemies Model: enemies "name";
+    enemies e;
+    
+    //Bricks diplays
+    b.DisplayBricks();
+    //create Player
+    p.CreatePlayer();
+    //enemies model: "previous name".createEnemies(spawn X, spawn Y)
+    e.createEnemies(1059, 100);
+    
     // window creation
     sf::RenderWindow window(sf::VideoMode(1920, 1080), "CodVenture");
     // Game while open
@@ -33,11 +36,12 @@ int main()
                 window.close();
             if (event.type == sf::Event::MouseButtonPressed)
             {
+                //Player movement tab
                 int moveRResult = b.SystemeMoveR(event);
                 int moveLResult = b.SystemeMoveL(event);
                 int moveJFResult = b.SystemMoveJF(event);
                 int moveJResult = b.SystemMoveJ(event);
-                
+                //tab 
                 if (moveRResult != 0 )
                 {
                     p.createTab(moveRResult);
@@ -57,16 +61,16 @@ int main()
                 b.SystemRun(event);
             }
         }
-            // Black screen
+            // blue background
             window.clear(sf::Color(0, 0, 255));
 
             // Update
-            // window.draw(...);  
             b.DrawSystemBricks(window);
             b.DrawTab(window);
+            //player update
             p.Gravity(window);
+            //enemies update model: "previous name".GravityE(window, previous spawn X + 1, max X you want);
             e.GravityE(window, 1060, 1447);
-            pablo.GravityE(window, 803, 900);
 
             // Last Frame
             window.display();

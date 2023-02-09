@@ -2,15 +2,18 @@
 
 enemies::enemies()
 {
+	//Bool of enemies movement
 	MoveR = false;
 	MoveL = false;
 
 	sf::Texture m_enemiesTextures;
 
+	//Ground
 	sf::RectangleShape m_rect;
 	m_rectX = 0.0;
 	m_rectY = 490.0;
 
+	//Gravity
 	g = 0.0;
 	s = 0.0;
 }
@@ -29,6 +32,7 @@ enemies::~enemies()
 
 void enemies::createEnemies(float spawnX, float spawnY)
 {
+	//enemies pos and size
 	this->setSize(sf::Vector2f(40.0, 40.0));
 	this->setPosition(sf::Vector2f(spawnX, spawnY));
 
@@ -38,23 +42,24 @@ void enemies::createEnemies(float spawnX, float spawnY)
 
 void enemies::GravityE(sf::RenderWindow& window, float maxL, float maxR)
 {
+	//Gravity
+	sf::Vector2f gravity(s, g);
+	g += 0.1;
+	//Is grounded?
 	if (this->getGlobalBounds().intersects(m_rect.getGlobalBounds()))
 	{
 		g = 0;
 	}
-
-	sf::Vector2f gravity(s, g);
-
-	g += 0.1;
-
 	this->move(gravity);
 
+	//texture load
 	if (!m_enemiesTextures.loadFromFile("assets/enemie.png"))
 		std::cout << "Fail to load ennemie.png" << std::endl;
 
 	this->setTexture(&m_enemiesTextures);
 	this->setPosition(sf::Vector2f(this->getPosition().x, this->getPosition().y));
  
+	//Movement check Pos
 	if (this->getPosition().x <= maxL) {
 		MoveR = true;
 		MoveL = false;
@@ -71,6 +76,7 @@ void enemies::GravityE(sf::RenderWindow& window, float maxL, float maxR)
 		this->move(sf::Vector2f(-1, 0));
 	}
 
-	window.draw(*this);
+	//draw
 	window.draw(m_rect);
+	window.draw(*this);
 }

@@ -12,7 +12,9 @@ public:
 	//debug 
 	sf::RectangleShape m_rect;
 
+	//spawn
 	void createEnemies(float spawnX, float spawnY);
+	//Update
 	void GravityE(sf::RenderWindow& window, float maxL, float maxR);
 
 private:
