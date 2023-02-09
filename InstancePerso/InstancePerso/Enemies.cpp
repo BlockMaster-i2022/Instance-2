@@ -2,11 +2,10 @@
 
 enemies::enemies()
 {
-	//m_enemieX = 1070;
-	//m_enemieY = 100;
-
 	MoveR = false;
 	MoveL = false;
+
+	sf::Texture m_enemiesTextures;
 
 	sf::RectangleShape m_rect;
 	m_rectX = 0.0;
@@ -18,13 +17,14 @@ enemies::enemies()
 
 enemies::~enemies()
 {
-	//m_enemieX;
-	//m_enemieY;
-
 	sf::RectangleShape m_rect;
+
+	sf::Texture m_enemiesTextures;
+
 	m_rectX;
 	m_rectY;
 
+	s, g;
 }
 
 void enemies::createEnemies(float spawnX, float spawnY)
@@ -49,17 +49,19 @@ void enemies::GravityE(sf::RenderWindow& window, float maxL, float maxR)
 
 	this->move(gravity);
 
-	//std::cout << this->getPosition().x << " enemie X" << std::endl;
+	if (!m_enemiesTextures.loadFromFile("assets/enemie.png"))
+		std::cout << "Fail to load ennemie.png" << std::endl;
 
+	this->setTexture(&m_enemiesTextures);
+	this->setPosition(sf::Vector2f(this->getPosition().x, this->getPosition().y));
+ 
 	if (this->getPosition().x <= maxL) {
 		MoveR = true;
 		MoveL = false;
-	//	std::cout << MoveR << " right" << std::endl;
 	}
 	if (this->getPosition().x >= maxR) {
 		MoveR = false;
 		MoveL = true;
-		std::cout << MoveL << " left" << std::endl;
 	}
 
 	if (MoveR == true) {

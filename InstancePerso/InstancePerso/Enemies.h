@@ -8,13 +8,15 @@ class enemies
 public:
 	enemies();
 	~enemies();
+
+	//debug 
 	sf::RectangleShape m_rect;
+
 	void createEnemies(float spawnX, float spawnY);
 	void GravityE(sf::RenderWindow& window, float maxL, float maxR);
 
 private:
-	//float m_enemieX;
-	//float m_enemieY;
+	sf::Texture m_enemiesTextures;
 
 	bool MoveR;
 	bool MoveL;

@@ -61,7 +61,6 @@ int main()
             window.clear(sf::Color(0, 0, 255));
 
             // Update
-            b.LoopRun();
             // window.draw(...);  
             b.DrawSystemBricks(window);
             b.DrawTab(window);

@@ -17,10 +17,12 @@ public:
 
 	void CreatePlayer();
 	void createTab(int index);
-	void tabRead(bool gameisrunning);
+	void tabRead();
 	void Gravity(RenderWindow& window);
 
 private:
+	sf::Texture m_PlayerTexture;
+
 	float m_playerX;
 	float m_playerY;
 	float s, g;

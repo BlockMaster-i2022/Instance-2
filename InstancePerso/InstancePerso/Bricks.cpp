@@ -238,7 +238,7 @@ bool Bricks::SystemRun(sf::Event event)
 		if (event.mouseButton.button == sf::Mouse::Left)
 		{
 			std::cout << "Tu clique sur la brique run" << std::endl;
-			m_GameIsRunning = true;
+			p->tabRead();
 		}
 	}
 
@@ -299,13 +299,5 @@ void Bricks::DrawTab(RenderWindow& window)
 	for (auto& sprite : drawSprite)
 	{
 		window.draw(sprite);
-	}
-}
-
-void Bricks::LoopRun()
-{
-	if (m_GameIsRunning)
-	{
-		p->tabRead(m_GameIsRunning);
 	}
 }

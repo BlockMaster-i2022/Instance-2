@@ -2,6 +2,7 @@
 
 Player::Player()
 {
+	sf::Texture m_PlayerTexture;
 	m_playerX = 960.0;
 	m_playerY = 100.0;
 
@@ -11,17 +12,12 @@ Player::Player()
 	s = 0;
 
 	stop = false;
-
-	tab = vector<int>(15);
-	for (int i = 0; i <= 14; i++)
-	{
-		tab[i] = 0;
-	}
 }
 
 
 Player::~Player()
 {
+	sf::Texture m_PlayerTexture;
 	m_playerX;
 	m_playerY;
 }
@@ -36,37 +32,40 @@ void Player::Gravity(RenderWindow& window)
 {
 	sf::Vector2f gravity(s,g);
 
-	g += 0;
+	g += 0.1;
 
 	this->move(gravity);
+
+	if (!m_PlayerTexture.loadFromFile("assets/Player.png"))
+		std::cout << "Fail to load ennemie.png" << std::endl;
+
+	this->setTexture(&m_PlayerTexture);
+	this->setPosition(sf::Vector2f(this->getPosition().x, this->getPosition().y));
 	
 	window.draw(*this);
 }
 
 void Player::createTab(int index)
 {
-//	tab.push_back(index);
+	tab.push_back(index);
 	std::cout << index << " index:";
 	std::cout << tab.size() << std::endl;
 }
 
-void Player::tabRead(bool gameisrunning)
+void Player::tabRead()
 {
 	std::cout << tab.size() << std::endl;
 	
-		switch (tab[indexReadTab])
+	for (int i = 0; i < tab.size(); i++)
+	{
+		switch (tab[i])
 		{
-		case 0:
-			gameisrunning = false;
-			break;
 		case 1:
 			this->move(Vector2f(33.0, 0.0));
-			gameisrunning = true;
 			std::cout << "Tu vas à droite" << std::endl;
 			break;
 		case 2:
 			this->move(Vector2f(-33.0, 0.0));
-			gameisrunning = true;
 			std::cout << "Tu vas à gauche" << std::endl;
 			break;
 		case 3:
@@ -74,12 +73,10 @@ void Player::tabRead(bool gameisrunning)
 			std::cout << "Tu Sautes" << std::endl;
 		case 4:
 			this->move(Vector2f(32.0, -33.0));
-			gameisrunning = true;
 			std::cout << "Tu saute en avant" << std::endl;
 			break;
 		default:
 			break;
 		}
-		indexReadTab++;
-		std::cout << gameisrunning << std::endl;
+	}
 }

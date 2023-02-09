@@ -17,7 +17,6 @@ public:
 	void DrawSystemBricks(sf::RenderWindow& window);
 	void systemBricks(sf::RenderWindow& window, sf::Event event);
 	void DrawTab(RenderWindow& window);
-	void LoopRun();
 
 	int SystemMoveJ(sf::Event event);
 	int SystemMoveJF(sf::Event event);
