@@ -45,3 +45,8 @@ cmake-build-*/
 x64/
 externals/
 packages/
+*.db
+*.ipch
+*.pdb
+*.suo
+
